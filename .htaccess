@@ -1,0 +1,52 @@
+# Evitar listar los directorios
+Options ALL -indexes
+
+# Establecer la página de inicio predeterminada
+DirectoryIndex index.php
+
+# Habilitar la reescritura de URLs amigables
+RewriteEngine On
+
+# Redirigir todas las solicitudes a index.php si no se encuentra el archivo o directorio
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([-a-zA-Z0-9_/]+)$ index.php?page=$1 
+
+
+
+# Configurar la caché del navegador para mejorar el rendimiento
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 1 hour"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/x-font-ttf "access plus 1 month"
+    ExpiresByType application/x-font-woff "access plus 1 month"
+    ExpiresByType application/font-woff2 "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# Configurar límites de carga para PHP
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value memory_limit 128M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# Proteger archivos sensibles
+<FilesMatch "\.(htaccess|htpasswd|env|ini|log|sh|bak|sql|swp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Habilitar compresión Gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml application/xhtml+xml application/rss+xml application/font-woff2 application/font-woff application/vnd.ms-fontobject image/svg+xml
+</IfModule>
