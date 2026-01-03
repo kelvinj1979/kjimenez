@@ -23,22 +23,66 @@
 
           <div class="lg:col-span-2 space-y-12">
             <!-- Skills -->
-            <div class="space-y-4 animate-on-scroll">
+           <!--  <div class="space-y-4 animate-on-scroll">
               <div class="flex items-center space-x-2">
                 <i data-lucide="award" class="h-5 w-5 text-primary"></i>
                 <h3 class="text-xl font-bold">Skills & Expertise</h3>
               </div>
               <div class="flex flex-wrap gap-2">
-              <?php
-                $skills = json_decode($portfolio["skills"], true);
+            <?php
+              /*    $skills = json_decode($portfolio["skills"], true);
            
                 foreach ($skills as $key => $value) {
                   echo '<span class="skill-item">'.$value.'</span>';
-                }               
+                }  */             
 
               ?>
                 
               </div>
+            </div> -->
+            <div class="space-y-8 animate-on-scroll">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="award" class="h-6 w-6 text-primary"></i>
+                    <h3 class="text-2xl font-bold">Skills & Expertise</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <?php
+                    $categories = [
+                        "Data Engineering & Cloud" => [
+                            "Snowflake", "AWS (S3, Lambda, Athena, EC2)", "Apache Airflow", 
+                            "Docker", "Python (Pandas)", "ETL Pipelines", "Data Modeling"
+                        ],
+                        "Database Administration (Expert)" => [
+                            "Oracle (8i-12c)", "MS SQL Server", "MySQL", "PL/SQL", 
+                            "T-SQL", "Performance Tuning", "Stored Procedures"
+                        ],
+                        "BI & Data Visualization" => [
+                            "PowerBI", "Tableau", "Pentaho", "Crystal Reports", 
+                            "Business Objects", "KPI Dashboards"
+                        ],
+                        "Full-Stack Development" => [
+                            "PHP", "Laravel", "JavaScript", "React", 
+                            ".Net Core", "Java", "REST APIs", "Git"
+                        ]
+                    ];
+
+                    foreach ($categories as $title => $items): ?>
+                        <div class="bg-gray-800/50 p-5 rounded-lg border border-gray-700">
+                            <h4 class="text-primary font-bold mb-3 flex items-center">
+                                <span class="w-2 h-2 bg-primary rounded-full mr-2"></span>
+                                <?php echo $title; ?>
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <?php foreach ($items as $item): ?>
+                                    <span class="skill-item bg-gray-700 text-gray-200 px-3 py-1 rounded-full text-sm border border-gray-600 hover:border-primary transition-colors">
+                                        <?php echo $item; ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <!-- Experience -->
