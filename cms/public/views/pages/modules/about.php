@@ -7,7 +7,7 @@
             <div class="sticky top-24">
               <h2 class="text-3xl font-bold mb-6">About Me</h2>
               <div class="relative overflow-hidden rounded-xl mb-6">
-                <img src="<?php echo $portfolio["photo"]; ?>" alt="John Doe" class="w-full aspect-square object-cover">
+                <img src="<?php echo $portfolio["photo"]; ?>" alt="<?php echo $portfolio["name"]; ?>" class="w-full aspect-square object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
               </div>
               <p class="text-foreground/80 mb-6">

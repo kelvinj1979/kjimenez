@@ -83,7 +83,7 @@ if ($portfolio) {
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="space-y-2">
                   <label for="name" class="text-sm font-medium text-foreground/70">Your Name</label>
-                  <input id="name" name="name" type="text" required class="contact-input w-full" placeholder="John Doe">
+                  <input id="name" name="name" type="text" required class="contact-input w-full" placeholder="John Doe" >
                 </div>
                 <div class="space-y-2">
                   <label for="email" class="text-sm font-medium text-foreground/70">Your Email</label>
