@@ -15,8 +15,10 @@
               <?php echo $portfolio["about_me"]; ?>
 
               </p>
-              <a href="<?php echo $portfolio["server"].$portfolio["resume"]; ?>" download class="btn btn-primary w-full">
-                <i data-lucide="file-text" class="mr-2 h-4 w-4"></i> Download Resume
+              <a href="<?php echo rtrim($portfolio["server"], '/') . '/' . ltrim($portfolio["resume"], '/'); ?>" 
+                download="Kelvin_Jimenez_Resume" 
+                class="btn btn-primary w-full">
+                  <i data-lucide="file-text" class="mr-2 h-4 w-4"></i> Download Resume
               </a>
             </div>
           </div>
