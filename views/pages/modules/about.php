@@ -15,7 +15,7 @@
               <?php echo $portfolio["about_me"]; ?>
 
               </p>
-              <a href="<?php echo $portfolio["resume"]; ?>" download class="btn btn-primary w-full">
+              <a href="<?php echo $portfolio["server"].$portfolio["resume"]; ?>" download class="btn btn-primary w-full">
                 <i data-lucide="file-text" class="mr-2 h-4 w-4"></i> Download Resume
               </a>
             </div>
